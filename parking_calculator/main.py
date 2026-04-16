@@ -43,7 +43,7 @@ def main():
     data = Path("input.txt").read_text(encoding="utf-8")
     for line in data.splitlines()[2:]:
         line = line.split("\t\t")
-        print(parking_fee(line[1], line[2]), end="\n")
+        print(str(parking_fee(line[1], line[2])) + " forint", end="\n")
 
 
 if __name__ == "__main__":
