@@ -89,7 +89,7 @@ def main():
     result = []
 
     for path in sorted(Path(".").glob("*.txt")):
-        lines = path.read_text(encoding="utf-8").splitlines()
+        lines = path.read_text(encoding="UTF-16-LE").splitlines()
 
         result.append({
             "file_name": path.name,
