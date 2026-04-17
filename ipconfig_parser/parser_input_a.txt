@@ -1,0 +1,55 @@
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet 2:
+
+   Connection-specific DNS Suffix  . : task.hackathlon.edu
+   IPv6 Address. . . . . . . . . . . : 
+   Temporary IPv6 Address. . . . . . : fd58:43b2:11a9::1
+   Link-local IPv6 Address . . . . . : fe80::9c21:ef74:66af:120d%3
+   IPv4 Address. . . . . . . . . . . : 192.168.0.10
+   Subnet Mask . . . . . . . . . . . : 
+   Default Gateway . . . . . . . . . : fe80::ab52:9c21:fabe:3e44%3
+                                       192.168.0.1
+									   127.0.0.1
+
+Ethernet adapter Ethernet 3:
+
+   Connection-specific DNS Suffix  . : 
+   IPv6 Address. . . . . . . . . . . : fd58:43b2:11a9:0000:0000:0000:0000:0001
+   Temporary IPv6 Address. . . . . . : fd58:43b2:11a9::1
+   Link-local IPv6 Address . . . . . : fe80::9c21:ef74:66af:120d%3
+   IPv4 Address. . . . . . . . . . . : 192.168.0.10(Deferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : fe80::ab52:9c21:fabe:3e44%3
+                                       192.168.0.1
+
+Ethernet adapter Ethernet 5:
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::ef74:6a6d:9c21:c312%15
+   Autoconfiguration IPv4 Address. . : 192.168.10.1
+   Subnet Mask . . . . . . . . . . . : 255.255.0.0
+   Default Gateway . . . . . . . . . : 
+   
+
+Wireless LAN adapter Local Area Connection* 1:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+
+Wireless LAN adapter Local Area Connection* 2:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+
+Wireless LAN adapter Wi-Fi:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+
+Ethernet adapter Bluetooth Network Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
