@@ -15,7 +15,7 @@ def parking_fee(entry, exit):
 
     days = time // (60 * 24)
     if days >= 1:
-        payment = time % (60 * 24)
+        payment = time % (60 * 24) - 30
     else:
         payment = time - 30
 
@@ -44,7 +44,7 @@ def main():
     data = Path("input.txt").read_text(encoding="utf-8")
     for line in data.splitlines()[2:]:
         line = line.split("\t\t")
-        print(f"{line[0]}\t\t{parking_fee(line[1], line[2])}", end="\n")
+        print(f"{line[0]}\t\t{parking_fee(line[1], line[2])} Ft", end="\n")
 
 
 if __name__ == "__main__":
