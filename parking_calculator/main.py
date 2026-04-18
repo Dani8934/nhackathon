@@ -14,15 +14,14 @@ def parking_fee(entry, exit):
         return 0
 
     days = time // (60 * 24)
+    finalcost = 0
     if days >= 1:
-        payment = time % (60 * 24) - 30
+        payment = time % (60 * 24)
+        while payment > 0:
+            finalcost += 500
+            payment -= 60
     else:
         payment = time - 30
-
-    finalcost = 0
-    if payment <= 0:
-        return int(days * 10000)
-    else:
         while payment > (3 * 60):
             finalcost += 500
             payment -= 60        
