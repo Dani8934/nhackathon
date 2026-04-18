@@ -42,6 +42,7 @@ def parking_fee(entry, exit):
 
 def main():
     data = Path("input.txt").read_text(encoding="utf-8")
+    print("RENDSZAM\tDIJ")
     for line in data.splitlines()[2:]:
         line = line.split("\t\t")
         print(f"{line[0]}\t\t{parking_fee(line[1], line[2])}", end="\n")
