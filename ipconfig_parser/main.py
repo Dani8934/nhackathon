@@ -2,9 +2,11 @@ from pathlib import Path
 import json
 
 
-def is_acceptedip(line):
+def is_importantgw(line):
     return line and "." in line and " " not in line
 
+def is_ip(line):
+    return line and ("." in line or ":" in line) and " " not in line
 
 def ipconfig_parser(lines):
     adapters = []
@@ -59,10 +61,10 @@ def ipconfig_parser(lines):
         elif "Default Gateway" in key:
             gw_mode = True
             dns_mode = False
-            if value and is_acceptedip(value):
+            if value and is_importantgw(value):
                 current["default_gateway"] = value
         elif gw_mode:
-            if is_acceptedip(line):
+            if is_importantgw(line):
                 current["default_gateway"] = line
                 gw_mode = False
             else:
@@ -71,10 +73,10 @@ def ipconfig_parser(lines):
         elif "DNS Servers" in key:
             dns_mode = True
             gw_mode = False
-            if value and is_acceptedip(value):
+            if value and is_ip(value):
                 current["dns_servers"].append(value)
         elif dns_mode:
-            if is_acceptedip(line):
+            if is_ip(line):
                 current["dns_servers"].append(line)
             else:
                 dns_mode = False
