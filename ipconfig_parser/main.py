@@ -2,8 +2,8 @@ from pathlib import Path
 import json
 
 
-def is_ip(line):
-    return line and ("." in line or ":" in line) and " " not in line
+def is_acceptedip(line):
+    return line and "." in line and " " not in line
 
 
 def ipconfig_parser(lines):
@@ -27,7 +27,7 @@ def ipconfig_parser(lines):
                 "dhcp_enabled": "",
                 "ipv4_address": "",
                 "subnet_mask": "",
-                "default_gateway": [],
+                "default_gateway": "",
                 "dns_servers": []
             }
 
@@ -56,29 +56,30 @@ def ipconfig_parser(lines):
         elif "Subnet Mask" in key:
             current["subnet_mask"] = value
 
-        elif "DNS Servers" in key:
-            dns_mode = True
-            gw_mode = False
-            if value and is_ip(value):
-                current["dns_servers"].append(value)
-        elif dns_mode:
-            if is_ip(line):
-                current["dns_servers"].append(line)
-            else:
-                dns_mode = False
-
         elif "Default Gateway" in key:
             gw_mode = True
             dns_mode = False
-            if value and is_ip(value):
-                current["default_gateway"].append(value)
+            if value and is_acceptedip(value):
+                current["default_gateway"] = value
         elif gw_mode:
-            if is_ip(line):
-                current["default_gateway"].append(line)
+            if is_acceptedip(line):
+                current["default_gateway"] = line
+                gw_mode = False
             else:
                 gw_mode = False
+
+        elif "DNS Servers" in key:
+            dns_mode = True
+            gw_mode = False
+            if value and is_acceptedip(value):
+                current["dns_servers"].append(value)
+        elif dns_mode:
+            if is_acceptedip(line):
+                current["dns_servers"].append(line)
+            else:
+                dns_mode = False
     
-    #utolsó adapter
+    # LAST ADAPTER
     if current:
         adapters.append(current)
 
